@@ -13,7 +13,7 @@ export default reducer(initState, {
     };
   },
 
-  [types.GET_LIST]: (state) => {
+  [types.GET_TASKS]: (state) => {
     return {
       ...state,
       list: [],
@@ -21,8 +21,7 @@ export default reducer(initState, {
     };
   },
 
-  [types.GET_LIST_SUCCESS]: (state, action) => {
-    console.log('action.payload', action.payload);
+  [types.GET_TASKS_SUCCESS]: (state, action) => {
     return {
       ...state,
       list : [
@@ -32,7 +31,7 @@ export default reducer(initState, {
     };
   },
 
-  [types.GET_LIST_FAILURE]: (state, action) => {
+  [types.GET_TASKS_FAILURE]: (state, action) => {
     return {
       ...state,
       wait: false,

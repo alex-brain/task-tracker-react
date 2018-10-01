@@ -1,9 +1,9 @@
 import tasks from '../../api/tasks';
 
 export const types = {
-  GET_LIST: 'GET_LIST',
-  GET_LIST_SUCCESS: 'GET_LIST_SUCCESS',
-  GET_LIST_FAILURE: 'GET_LIST_FAILURE',
+  GET_TASKS: 'GET_TASKS',
+  GET_TASKS_SUCCESS: 'GET_TASKS_SUCCESS',
+  GET_TASKS_FAILURE: 'GET_TASKS_FAILURE',
   CREATE: 'CREATE',
   UPDATE: 'UPDATE',
   DELETE: 'DELETE'
@@ -12,14 +12,14 @@ export const types = {
 export default {
   getList: () => {
     return async (dispatch) => {
-      dispatch({type: types.GET_LIST});
+      dispatch({type: types.GET_TASKS});
       try {
         const response = await tasks.getList();
         const result = response.data.tasks;
-        dispatch({type: types.GET_LIST_SUCCESS, payload: result});
+        dispatch({type: types.GET_TASKS_SUCCESS, payload: result});
       } catch (e) {
         if (e.response && e.response.status < 500) {
-          dispatch({type: types.GET_LIST_FAILURE, error: e.response.data.error});
+          dispatch({type: types.GET_TASKS_FAILURE, error: e.response.data.error});
         } else {
           throw e;
         }

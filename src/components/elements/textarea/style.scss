@@ -1,0 +1,23 @@
+.Textarea {
+  height: 60px;
+  font-size: 14px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  overflow: hidden;
+  resize: none;
+  padding: 4px;
+
+  &_theme {
+    &_full {
+      width: 100%;
+    }
+
+    &_short {
+      width: 250px;
+    }
+
+    &_min-height {
+      min-height: 100px;
+    }
+  }
+}

@@ -14,6 +14,32 @@ class Home extends Component {
 
   componentWillMount() {
     this.props.dispatch(actions.tasks.getList());
+    this.props.dispatch(actions.priority.getList());
+  }
+
+  componentDidMount() {
+    this.init();
+  }
+
+  fetchData = () => {
+    return Promise.all([
+      this.props.dispatch(actions.tasks.getList()),
+      this.props.dispatch(actions.priority.getList())
+    ]);
+  };
+
+  async init() {
+    if (this.checkAccess()) {
+      await this.fetchData();
+    }
+  }
+
+  checkAccess() {
+    if (!this.props.session.user.id) {
+      this.props.history.replace('/login');
+      return false;
+    }
+    return true;
   }
 
   render() {
@@ -26,5 +52,6 @@ class Home extends Component {
 }
 
 export default withRouter(connect(state => ({
-  tasks: state.tasks.list
+  tasks: state.tasks.list,
+  session: state.session
 }))(Home))

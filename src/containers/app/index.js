@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Route, Router, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
-import { LayoutPage } from '../../components/layouts';
-import { Home } from '../index';
+import { Home, Login } from '../index';
 
 class App extends Component {
 
@@ -13,13 +12,14 @@ class App extends Component {
 
   render() {
     return (
-      <LayoutPage header={<h2>UI Task Tracker</h2>}>
+      <Fragment>
         <Router history={this.history}>
           <Switch>
             <Route path="/" exact={true} component={Home}/>
+            <Route path="/login" exact={true} component={Login}/>
           </Switch>
         </Router>
-      </LayoutPage>
+      </Fragment>
     );
   }
 }
