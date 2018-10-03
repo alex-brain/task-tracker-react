@@ -1,0 +1,17 @@
+@import '../../../theme/variables';
+
+.TaskItem{
+  a {
+    color: $black;
+  }
+
+  &__warning {
+    font-weight: bold;
+  }
+
+  &_theme {
+    &_red {
+      background: $red;
+    }
+  }
+}

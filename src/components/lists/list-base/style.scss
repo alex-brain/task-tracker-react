@@ -1,0 +1,19 @@
+.List {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+
+  &_wrap {
+    flex-wrap: wrap;
+  }
+
+  &_theme {
+    &_width-md {
+      width: 75%
+    }
+  }
+}

@@ -26,6 +26,9 @@ export default {
       }
     };
   },
+  create: (data) => {
+    return dispatch => dispatch({type: types.CREATE, payload: data});
+  },
   update: (data) => {
     return dispatch => dispatch({type: types.UPDATE, payload: data});
   },

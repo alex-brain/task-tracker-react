@@ -1,0 +1,22 @@
+@import '../../../theme/variables';
+
+.FormCreateTaskButtons{
+  display: flex;
+  justify-content: flex-end;
+
+  &__open-task-list-link {
+    a {
+      margin-right: 20px;
+      padding: 8px 10px;
+      display: inline-block;
+      border: 2px solid $black;
+      border-radius: 5px;
+      color: $black;
+      text-decoration: none;
+    }
+  }
+
+  &__reset-btn {
+    margin-right: 20px;
+  }
+}

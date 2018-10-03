@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as actions from '../../store/actions';
 import { withRouter } from "react-router-dom";
+import * as actions from '../../store/actions';
+import { LayoutPage } from '../../components/layouts';
+import { TaskList } from '../../components/elements';
+
 
 class Home extends Component {
 
@@ -12,41 +15,13 @@ class Home extends Component {
     dispatch: PropTypes.func
   };
 
-  componentWillMount() {
-    this.props.dispatch(actions.tasks.getList());
-    this.props.dispatch(actions.priority.getList());
-  }
-
-  componentDidMount() {
-    this.init();
-  }
-
-  fetchData = () => {
-    return Promise.all([
-      this.props.dispatch(actions.tasks.getList()),
-      this.props.dispatch(actions.priority.getList())
-    ]);
-  };
-
-  async init() {
-    if (this.checkAccess()) {
-      await this.fetchData();
-    }
-  }
-
-  checkAccess() {
-    if (!this.props.session.user.id) {
-      this.props.history.replace('/login');
-      return false;
-    }
-    return true;
-  }
-
   render() {
+    const { tasks } = this.props;
+
     return (
-      <div className="Home">
-        Home
-      </div>
+      <LayoutPage header={<h2>Список задач</h2>}>
+        <TaskList items={tasks} onChangeTaskActive={()=> {}} />
+      </LayoutPage>
     );
   }
 }
