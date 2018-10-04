@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import * as actions from '../../store/actions';
 import { LayoutPage } from '../../components/layouts';
-import { TaskList, TaskFilter } from '../../components/elements';
+import { TaskList, TaskFilter, ViewSelect } from '../../components/elements';
 
 
 class Home extends Component {
@@ -12,6 +12,7 @@ class Home extends Component {
   static propTypes = {
     tasks: PropTypes.array,
     taskFilter: PropTypes.object,
+    viewSelect: PropTypes.object,
     priority: PropTypes.array,
     statuses: PropTypes.array,
     history: PropTypes.object.isRequired,
@@ -49,6 +50,10 @@ class Home extends Component {
     this.props.dispatch(actions.taskFilter.change(data));
   };
 
+  onChangeViewSelect = (data) => {
+    this.props.dispatch(actions.viewSelect.change(data));
+  };
+
   getFilteredTasks = () => {
     const { tasks, taskFilter } = this.props;
     return tasks.filter(item => {
@@ -58,18 +63,23 @@ class Home extends Component {
   };
 
   render() {
-    const { taskFilter, priority, statuses } = this.props;
+    const { taskFilter, viewSelect, priority, statuses } = this.props;
     const filteredTasks = this.getFilteredTasks();
 
     return (
       <LayoutPage header={<h2>Список задач</h2>}>
+        <ViewSelect
+          data={viewSelect.data}
+          options={viewSelect.options}
+          onChange={this.onChangeViewSelect}
+        />
         <TaskFilter
           onChangeTaskFilterPriority={this.onChangeTaskFilterPriority}
           data={taskFilter.data}
           priority={priority}
           statuses={statuses}
         />
-        <TaskList items={filteredTasks}/>
+        <TaskList items={filteredTasks} viewMode={viewSelect.data}/>
       </LayoutPage>
     );
   }
@@ -80,6 +90,6 @@ export default withRouter(connect(state => ({
   session: state.session,
   taskFilter: state.taskFilter,
   priority: state.priority.list,
-  statuses: state.statuses.list
-
+  statuses: state.statuses.list,
+  viewSelect: state.viewSelect
 }))(Home));

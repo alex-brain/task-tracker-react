@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
-import { TaskRowDetail } from '../index';
+import { TaskRowDetail, TaskRowShort } from '../index';
 import './style.scss';
 
 class TaskItem extends Component {
@@ -15,7 +15,8 @@ class TaskItem extends Component {
       priority: PropTypes.string,
       dueTime: PropTypes.string,
       executionTime: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
-    })
+    }),
+    viewMode: PropTypes.string
   };
 
   getFormattedDateTime = (dateTime) => {
@@ -37,14 +38,13 @@ class TaskItem extends Component {
     return taskDueTime < currentTime;
   };
 
-  render() {
-    const { data } = this.props;
+  renderTask = () => {
+    const { data, viewMode } = this.props;
     const { title, description, status, priority, dueTime, executionTime, id } = data;
     const formattedDueTime = dueTime ? this.getFormattedDateTime(dueTime) : '';
     const formattedExecutionTime= executionTime ? this.getFormattedDateTime(executionTime) : '';
-
-    return (
-      <div className={cn("TaskItem", {'TaskItem_theme_red': this.getTaskOverdue(dueTime)})}>
+    if (viewMode === 'подробный') {
+      return (
         <TaskRowDetail
           cells={[
             <Link to={{ pathname: `/update/${id}`, state: {data} }}>{status}</Link>,
@@ -55,13 +55,38 @@ class TaskItem extends Component {
                   Срок выполнения задачи истек!
                 </div>
               )}
-              </Link>,
+            </Link>,
             <Link to={{ pathname: `/update/${id}`, state: {data} }}>{description}</Link>,
             <Link to={{ pathname: `/update/${id}`, state: {data} }}>{priority}</Link>,
             <Link to={{ pathname: `/update/${id}`, state: {data} }}>{formattedDueTime}</Link>,
             <Link to={{ pathname: `/update/${id}`, state: {data} }}>{formattedExecutionTime}</Link>,
           ]}
         />
+      )
+    } else if (viewMode === 'краткий') {
+      return (
+        <TaskRowShort
+          cells={[
+            <Link to={{ pathname: `/update/${id}`, state: {data} }}>{status}</Link>,
+            <Link to={{ pathname: `/update/${id}`, state: {data} }}>
+              {title}
+              {this.getTaskOverdue(dueTime) &&(
+                <div className="TaskItem__warning">
+                  Срок выполнения задачи истек!
+                </div>
+              )}
+            </Link>,
+            <Link to={{ pathname: `/update/${id}`, state: {data} }}>{priority}</Link>,
+          ]}
+        />
+      )
+    }
+  };
+
+  render() {
+    return (
+      <div className={cn("TaskItem", {'TaskItem_theme_red': this.getTaskOverdue(this.props.data.dueTime)})}>
+        {this.renderTask()}
       </div>
     );
   }
