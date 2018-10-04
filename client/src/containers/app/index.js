@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { Route, Router, Switch } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 import { Home, Login, CreateTaskContainer, UpdateTaskContainer } from '../index';

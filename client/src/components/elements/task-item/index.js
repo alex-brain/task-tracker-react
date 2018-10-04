@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import cn from 'classnames';
-import { TaskRow, Input } from '../index';
+import { TaskRowDetail } from '../index';
 import './style.scss';
 
 class TaskItem extends Component {
@@ -15,8 +15,7 @@ class TaskItem extends Component {
       priority: PropTypes.string,
       dueTime: PropTypes.string,
       executionTime: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
-    }),
-    onChangeTaskActive: PropTypes.func
+    })
   };
 
   getFormattedDateTime = (dateTime) => {
@@ -38,21 +37,17 @@ class TaskItem extends Component {
     return taskDueTime < currentTime;
   };
 
-  getTaskStatus = (completed) => {
-    return completed ? 'Выполнена' : 'Активна';
-  };
-
   render() {
-    const { data, onChangeTaskActive } = this.props;
-    const { title, description, completed, priority, dueTime, executionTime, id } = data;
+    const { data } = this.props;
+    const { title, description, status, priority, dueTime, executionTime, id } = data;
     const formattedDueTime = dueTime ? this.getFormattedDateTime(dueTime) : '';
     const formattedExecutionTime= executionTime ? this.getFormattedDateTime(executionTime) : '';
 
     return (
       <div className={cn("TaskItem", {'TaskItem_theme_red': this.getTaskOverdue(dueTime)})}>
-        <TaskRow
+        <TaskRowDetail
           cells={[
-            <Link to={{ pathname: `/update/${id}`, state: {data} }}>{this.getTaskStatus(completed)}</Link>,
+            <Link to={{ pathname: `/update/${id}`, state: {data} }}>{status}</Link>,
             <Link to={{ pathname: `/update/${id}`, state: {data} }}>
               {title}
               {this.getTaskOverdue(dueTime) &&(

@@ -1,5 +1,5 @@
 import reducer from '../../utils/reducer';
-import {priorityTypes} from './actions';
+import {statusTypes} from './actions';
 
 const initState = {
   list: [],
@@ -8,13 +8,13 @@ const initState = {
 };
 
 export default reducer(initState, {
-  [priorityTypes.INIT]: (state) => {
+  [statusTypes.INIT]: (state) => {
     return {
       ...state,
     };
   },
 
-  [priorityTypes.GET_PRIORITY]: (state) => {
+  [statusTypes.GET_STATUSES]: (state) => {
     return {
       ...state,
       list: [],
@@ -22,7 +22,7 @@ export default reducer(initState, {
     };
   },
 
-  [priorityTypes.GET_PRIORITY_SUCCESS]: (state, action) => {
+  [statusTypes.GET_STATUSES_SUCCESS]: (state, action) => {
     return {
       ...state,
       list : [
@@ -32,7 +32,7 @@ export default reducer(initState, {
     };
   },
 
-  [priorityTypes.GET_PRIORITY_FAILURE]: (state, action) => {
+  [statusTypes.GET_STATUSES_FAILURE]: (state, action) => {
     return {
       ...state,
       wait: false,

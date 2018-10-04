@@ -64,7 +64,7 @@ export default reducer(initState, {
   },
 
   [types.DELETE_TASK_SUCCESS]: (state, action) => {
-    const list = state.list.filter(item => item.id !== parseInt(action.payload));
+    const list = state.list.filter(item => item.id !== parseInt(action.payload, 10));
     return {
       ...state,
       list

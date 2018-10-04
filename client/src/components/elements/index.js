@@ -1,9 +1,11 @@
 export {default as Input} from './input';
 export {default as Button} from './button';
+export {default as Checkbox} from './checkbox';
 export {default as Select} from './select';
 export {default as Textarea} from './textarea';
 export {default as TaskList} from './task-list';
 export {default as TaskItem} from './task-item';
-export {default as TaskRow} from './task-row';
+export {default as TaskRowDetail} from './task-row-detail';
+export {default as TaskFilter} from './task-filter';
 export {default as FormCreateTaskButtons} from './form-create-task-buttons';
 export {default as FormUpdateTaskButtons} from './form-update-task-buttons';

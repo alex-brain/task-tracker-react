@@ -2,20 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { List } from '../../lists';
-import { TaskItem, TaskRow } from '../index';
+import { TaskItem, TaskRowDetail } from '../index';
 import './style.scss';
 
 class TaskList extends Component {
 
   static propTypes = {
-    items: PropTypes.array,
-    onChangeTaskActive: PropTypes.func
+    items: PropTypes.array
   };
 
   renderItem = (item) => (
     <TaskItem
       data={item}
-      onChangeTaskActive={this.props.onChangeTaskActive}
     />
   );
 
@@ -23,7 +21,7 @@ class TaskList extends Component {
     const { items } = this.props;
     return (
       <div className="TaskList">
-        <TaskRow
+        <TaskRowDetail
           cells={[
             'Статус',
             'Название',

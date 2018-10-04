@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const tasks = require('./routes/task');
 const users = require('./routes/user');
 const priority = require('./routes/priority');
+const statuses = require('./routes/status');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
 app.use('/tasks/', tasks);
 app.use('/users/', users);
 app.use('/priority/', priority);
+app.use('/statuses/', statuses);
 
 http.listen(8080, function () {
   console.log('backend listening on *:8080');

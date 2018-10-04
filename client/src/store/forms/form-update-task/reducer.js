@@ -5,8 +5,8 @@ const initState = {
   data: {
     title: '',
     description: '',
-    completed: false,
     priority: 'обычная',
+    status: 'план',
     dueTime: '',
     executionTime: ''
   },
@@ -41,8 +41,8 @@ export default reducer(initState, {
       data: {
         title: '',
         description: '',
-        completed: false,
         priority: 'обычная',
+        status: 'план',
         dueTime: '',
         executionTime: ''
       }

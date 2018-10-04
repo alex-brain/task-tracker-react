@@ -7,7 +7,8 @@ class FormTask extends Component {
 
   static propTypes = {
     data: PropTypes.object,
-    priority: PropTypes.object,
+    priority: PropTypes.array,
+    statuses: PropTypes.array,
     options: PropTypes.array,
     errors: PropTypes.object,
     onChange: PropTypes.func,
@@ -17,12 +18,18 @@ class FormTask extends Component {
   onChange = name => {
     return (value) => {
       const data = {...this.props.data, [name]: value};
+      if (name === 'status' && value === 'готово') {
+        data.executionTime = new Date();
+      }
+      if (name === 'status' && value !== 'готово') {
+        data.executionTime = '';
+      }
       this.props.onChange(data);
     };
   };
 
   render() {
-    const { data, options, errors, buttons } = this.props;
+    const { data, priority, statuses, errors, buttons } = this.props;
     return (
       <div className="FormTask">
         <div className="FormTask__fields">
@@ -42,16 +49,25 @@ class FormTask extends Component {
           >
           </LayoutField>
           <LayoutField
-            label={'Важность задачи'}
+            label={'Приоритет'}
             input={<Select
-              options={options}
+              options={priority}
               data={data.priority}
               onChange={this.onChange('priority')}
               theme={'short'}
             />}
             error={errors.priority}
-          >
-          </LayoutField>
+          />
+          <LayoutField
+            label={'Статус'}
+            input={<Select
+              options={statuses}
+              data={data.status}
+              onChange={this.onChange('status')}
+              theme={'short'}
+            />}
+            error={errors.status}
+          />
           <LayoutField
             label={'Ожидаемое время выполнения задачи'}
             input={<Input

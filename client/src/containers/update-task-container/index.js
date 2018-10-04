@@ -12,6 +12,7 @@ class UpdateTaskContainer extends Component {
   static propTypes = {
     formUpdateTask: PropTypes.object,
     priority: PropTypes.array,
+    statuses: PropTypes.array,
     history: PropTypes.object.isRequired,
     dispatch: PropTypes.func
   };
@@ -41,13 +42,14 @@ class UpdateTaskContainer extends Component {
   };
 
   render() {
-    const { priority } =  this.props;
+    const { priority, statuses } =  this.props;
     const { data, errors } = this.props.formUpdateTask;
     return (
       <LayoutPage header={<h2>Задача</h2>}>
         <FormTask
           data={data}
-          options={priority}
+          priority={priority}
+          statuses={statuses}
           errors={errors}
           onChange={this.onChange}
           onSubmit={this.onSubmit}
@@ -62,4 +64,5 @@ class UpdateTaskContainer extends Component {
 export default withRouter(connect(state => ({
   formUpdateTask: state.formUpdateTask,
   priority: state.priority.list,
+  statuses: state.statuses.list,
 }))(UpdateTaskContainer))
