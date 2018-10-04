@@ -3,7 +3,7 @@ const router = express.Router();
 const taskController = require('../controllers/task');
 
 router.get('/', (req, res) => {
-  res.send(taskController.getList());
+  res.send(taskController.getList(req.query.userId));
 });
 
 router.post('/create', async (req, res) => {
@@ -27,8 +27,6 @@ router.put('/update/:id', async (req, res) => {
 router.delete('/delete/:id', async (req, res) => {
   try {
     const deletedTaskId = await taskController.deleteOne(parseInt(req.params.id));
-    console.log('deletedTaskId', deletedTaskId);
-
     res.send({ id: deletedTaskId });
   } catch (e) {
     res.send(e);

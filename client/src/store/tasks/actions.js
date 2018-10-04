@@ -17,10 +17,11 @@ export const types = {
 
 export default {
   getList: () => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
       dispatch({type: types.GET_TASKS});
       try {
-        const response = await tasks.getList();
+        const userId = getState().session.user.id;
+        const response = await tasks.getList(userId);
         const result = response.data.tasks;
         dispatch({type: types.GET_TASKS_SUCCESS, payload: result});
       } catch (e) {
@@ -33,10 +34,11 @@ export default {
     };
   },
   createOne: (data) => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
       dispatch({type: types.CREATE_TASK});
       try {
-        const response = await tasks.createOne(data);
+        const userId = getState().session.user.id;
+        const response = await tasks.createOne({userId, task: data});
         const result = response.data;
         dispatch({type: types.CREATE_TASK_SUCCESS, payload: result});
       } catch (e) {
@@ -49,10 +51,11 @@ export default {
     };
   },
   updateOne: (data) => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
       dispatch({type: types.UPDATE_TASK});
       try {
-        const response = await tasks.updateOne(data);
+        const userId = getState().session.user.id;
+        const response = await tasks.updateOne({userId, task: data});
         const result = response.data;
         dispatch({type: types.UPDATE_TASK_SUCCESS, payload: result});
       } catch (e) {

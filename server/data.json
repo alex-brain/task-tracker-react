@@ -24,24 +24,38 @@
   "tasks": {
     "1": [
       {
-        "id": 1,
-        "title": "first task",
-        "description": "first task description"
+        "id": 103004,
+        "title": "task for user 1",
+        "description": "task for user 1",
+        "completed": false,
+        "priority": "обычная",
+        "dueTime": "",
+        "executionTime": ""
       },
       {
-        "id": 2,
-        "title": "second task",
-        "description": "second task description"
+        "id": 15428,
+        "title": "second task for user 1",
+        "description": "second task for user 1",
+        "completed": false,
+        "priority": "обычная",
+        "dueTime": "",
+        "executionTime": ""
+      }
+    ],
+    "2": [
+      {
+        "id": 27843,
+        "title": "task for user 2",
+        "description": "task for user 2",
+        "completed": false,
+        "priority": "обычная",
+        "dueTime": "",
+        "executionTime": ""
       },
       {
-        "id": 3,
-        "title": "third task",
-        "description": "third task description"
-      },
-      {
-        "id": 876732,
-        "title": "5!!!!",
-        "description": "5!!!",
+        "id": 779358,
+        "title": "second task for user 2",
+        "description": "second task for user 2",
         "completed": false,
         "priority": "обычная",
         "dueTime": "",
