@@ -4,12 +4,14 @@
   "private": true,
   "dependencies": {
     "autoprefixer": "7.1.6",
+    "axios": "^0.18.0",
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
     "babel-loader": "7.1.2",
     "babel-preset-react-app": "^3.1.2",
     "babel-runtime": "6.26.0",
+    "body-parser": "^1.18.3",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "chalk": "1.1.3",
     "classnames": "^2.2.6",
@@ -23,10 +25,13 @@
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.4.0",
+    "express": "^4.16.3",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.5",
+    "fs": "0.0.1-security",
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
+    "http": "0.0.0",
     "jest": "20.0.4",
     "node-sass-chokidar": "^1.3.3",
     "object-assign": "4.1.1",
@@ -54,9 +59,11 @@
     "whatwg-fetch": "2.0.3"
   },
   "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "client": "node client/scripts/start.js",
+    "server": "node server/server.js &",
+    "start": "npm-run-all --parallel client server",
+    "build": "node client/scripts/build.js",
+    "test": "node client/scripts/test.js --env=jsdom"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -102,6 +109,7 @@
   },
   "devDependencies": {
     "node-sass": "^4.9.3",
+    "npm-run-all": "^4.1.3",
     "sass-loader": "^7.1.0"
   }
 }
