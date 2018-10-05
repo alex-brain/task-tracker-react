@@ -1,0 +1,12 @@
+@import '../../../../theme/variables';
+
+.ScrumItem {
+  padding: 10px;
+  min-height: 65px;
+  border-bottom: 1px solid $grayLight;
+  box-sizing: border-box;
+
+  a {
+    color: $black;
+  }
+}

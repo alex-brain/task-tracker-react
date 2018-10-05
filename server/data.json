@@ -27,14 +27,43 @@
     "готово"
   ],
   "tasks": {
+    "1": [
+      {
+        "id": 484688,
+        "title": "Первая задача для user1",
+        "description": "задача для user1",
+        "priority": "обычная",
+        "status": "план",
+        "dueTime": "",
+        "executionTime": ""
+      },
+      {
+        "id": 121291,
+        "title": "Вторая задача для user1",
+        "description": "Вторая задача для user1",
+        "priority": "очень важная",
+        "status": "в процессе",
+        "dueTime": "2018-10-01T18:00",
+        "executionTime": ""
+      },
+      {
+        "id": 249373,
+        "title": "Третья задача для user1",
+        "description": "Третья задача для user1",
+        "priority": "очень важная",
+        "status": "готово",
+        "dueTime": "2018-10-21T10:00",
+        "executionTime": "2018-10-05T02:37:39.617Z"
+      }
+    ],
     "2": [
       {
         "id": 98734,
-        "title": "1",
-        "description": "1",
+        "title": "Первая задача для user2",
+        "description": "Задача 1 для user2",
         "completed": false,
         "priority": "обычная",
-        "status": "план",
+        "status": "в процессе",
         "dueTime": "",
         "executionTime": ""
       },
@@ -70,7 +99,7 @@
         "title": "5",
         "description": "5",
         "priority": "обычная",
-        "status": "готово",
+        "status": "в процессе",
         "dueTime": "",
         "executionTime": "2018-10-04T23:10:22.817Z"
       }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import * as actions from '../../store/actions';
+import { Header } from '../index';
 import { LayoutPage } from '../../components/layouts';
 import { FormLogin } from '../../components/forms';
 
@@ -40,7 +41,7 @@ class Home extends Component {
     const { data, errors } = this.props.formLogin;
 
     return (
-      <LayoutPage header={<h2>Авторизация</h2>}>
+      <LayoutPage header={<Header text={'Авторизация'}/>}>
         <FormLogin
           data={data}
           errors={errors}

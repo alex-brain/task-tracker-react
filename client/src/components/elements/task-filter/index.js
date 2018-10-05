@@ -25,6 +25,7 @@ class TaskFilter extends Component {
 
   render() {
     const { priority, statuses } = this.props;
+
     return (
       <div className="TaskFilter">
         <div className="TaskFilter__priority">

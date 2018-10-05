@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import * as actions from '../../store/actions';
 import { LayoutPage } from '../../components/layouts';
-import { TaskList, TaskFilter, ViewSelect } from '../../components/elements';
+import { Header } from '../index';
+import { TaskList, TaskFilter, ViewSelect, ScrumBoard } from '../../components/elements';
 
 
 class Home extends Component {
@@ -19,9 +20,15 @@ class Home extends Component {
     dispatch: PropTypes.func
   };
 
-  componentDidMount() {
+  componentWillMount() {
     this.fetchData();
   }
+
+  moveTask = (dragCard, hoverCard) => {
+    const updatedTask = {...dragCard.card, status: hoverCard.status};
+    this.props.dispatch(actions.tasks.updateOne(updatedTask));
+
+  };
 
   fetchData = () => {
     return Promise.all([
@@ -67,7 +74,7 @@ class Home extends Component {
     const filteredTasks = this.getFilteredTasks();
 
     return (
-      <LayoutPage header={<h2>Список задач</h2>}>
+      <LayoutPage header={<Header text={'Список задач'}/>}>
         <ViewSelect
           data={viewSelect.data}
           options={viewSelect.options}
@@ -79,7 +86,13 @@ class Home extends Component {
           priority={priority}
           statuses={statuses}
         />
-        <TaskList items={filteredTasks} viewMode={viewSelect.data}/>
+        {viewSelect.data !== 'scrum доска' ? (
+          <TaskList items={filteredTasks} viewMode={viewSelect.data}/>
+        ) : (
+          <div>
+            <ScrumBoard items={filteredTasks} moveTask={this.moveTask} />
+          </div>
+        )}
       </LayoutPage>
     );
   }

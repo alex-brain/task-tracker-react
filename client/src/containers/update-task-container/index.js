@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
 import * as actions from '../../store/actions';
+import { Header } from '../index';
 import { LayoutPage } from '../../components/layouts';
 import { FormTask } from '../../components/forms';
 import { FormUpdateTaskButtons } from '../../components/elements';
@@ -45,7 +46,7 @@ class UpdateTaskContainer extends Component {
     const { priority, statuses } =  this.props;
     const { data, errors } = this.props.formUpdateTask;
     return (
-      <LayoutPage header={<h2>Задача</h2>}>
+      <LayoutPage header={<Header text={'Задача'}/>}>
         <FormTask
           data={data}
           priority={priority}

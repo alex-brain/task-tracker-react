@@ -7,6 +7,7 @@ export {default as TaskList} from './task-list';
 export {default as TaskItem} from './task-item';
 export {default as TaskRowDetail} from './task-row-detail';
 export {default as TaskRowShort} from './task-row-short';
+export {default as ScrumBoard} from './scrum-board';
 export {default as TaskFilter} from './task-filter';
 export {default as ViewSelect} from './view-select';
 export {default as FormCreateTaskButtons} from './form-create-task-buttons';

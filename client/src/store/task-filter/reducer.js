@@ -24,7 +24,7 @@ export default reducer(initState, {
         ...state.data,
         priority: [
           ...state.data.priority,
-          action.payload
+          ...action.payload
         ]
       }
     };
@@ -36,7 +36,7 @@ export default reducer(initState, {
         ...state.data,
         statuses: [
           ...state.data.statuses,
-          action.payload
+          ...action.payload
         ]
       }
     };

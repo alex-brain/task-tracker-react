@@ -1,0 +1,36 @@
+@import "../../../theme/variables";
+
+.LayoutHeader {
+
+  &__wrap{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 49px;
+  }
+
+  &__left{
+    text-align: left;
+  }
+  &__center{
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  &__right{
+    text-align: right;
+  }
+
+  @media screen and (max-width: 1199px) {
+    &__left {
+      padding-left: 0;
+    }
+
+    &__center,
+    &__right {
+      display: none;
+    }
+  }
+}

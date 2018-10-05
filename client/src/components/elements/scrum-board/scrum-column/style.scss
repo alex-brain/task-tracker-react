@@ -1,0 +1,11 @@
+@import '../../../../theme/variables';
+
+.ScrumColumn {
+  width: 30%;
+  border-right: 1px solid $grayLight;
+  box-sizing: border-box;
+
+  &:first-child {
+    border-left: 1px solid $grayLight;
+  }
+}
