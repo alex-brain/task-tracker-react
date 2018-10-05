@@ -41,7 +41,6 @@
     "prop-types": "^15.6.2",
     "raf": "3.4.0",
     "react": "^16.5.0",
-    "react-addons-update": "^15.6.2",
     "react-dev-utils": "^5.0.2",
     "react-dnd": "^5.0.0",
     "react-dnd-html5-backend": "^5.0.1",
@@ -63,7 +62,7 @@
   },
   "scripts": {
     "client": "node client/scripts/start.js",
-    "server": "node server/server.js &",
+    "server": "node server/server.js",
     "start": "npm-run-all --parallel client server",
     "build": "node client/scripts/build.js",
     "test": "node client/scripts/test.js --env=jsdom"

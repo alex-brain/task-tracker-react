@@ -29,79 +29,42 @@
   "tasks": {
     "1": [
       {
-        "id": 484688,
+        "id": 763010,
         "title": "Первая задача для user1",
-        "description": "задача для user1",
+        "description": "Описание первой задачи для user1",
         "priority": "обычная",
-        "status": "план",
-        "dueTime": "",
-        "executionTime": ""
+        "status": "готово",
+        "dueTime": "2018-10-28T16:00",
+        "executionTime": "2018-10-05T04:35:11.973Z"
       },
       {
-        "id": 121291,
-        "title": "Вторая задача для user1",
-        "description": "Вторая задача для user1",
+        "id": 28565,
+        "title": "Вторая задача для user2",
+        "description": "Вторая задача для user2",
         "priority": "очень важная",
         "status": "в процессе",
-        "dueTime": "2018-10-01T18:00",
+        "dueTime": "2018-10-01T16:00",
         "executionTime": ""
       },
       {
-        "id": 249373,
+        "id": 519947,
         "title": "Третья задача для user1",
         "description": "Третья задача для user1",
-        "priority": "очень важная",
+        "priority": "важная",
         "status": "готово",
-        "dueTime": "2018-10-21T10:00",
-        "executionTime": "2018-10-05T02:37:39.617Z"
+        "dueTime": "2018-10-18T14:00",
+        "executionTime": "2018-10-05T04:35:05.020Z"
       }
     ],
     "2": [
       {
-        "id": 98734,
+        "id": 427446,
         "title": "Первая задача для user2",
-        "description": "Задача 1 для user2",
-        "completed": false,
-        "priority": "обычная",
-        "status": "в процессе",
-        "dueTime": "",
-        "executionTime": ""
-      },
-      {
-        "id": 308808,
-        "title": "2",
-        "description": "2",
-        "priority": "важная",
-        "status": "план",
-        "dueTime": "",
-        "executionTime": ""
-      },
-      {
-        "id": 814188,
-        "title": "3",
-        "description": "3",
+        "description": "Первая задача для user2",
         "priority": "очень важная",
-        "status": "план",
-        "dueTime": "",
-        "executionTime": ""
-      },
-      {
-        "id": 955459,
-        "title": "4",
-        "description": "4",
-        "priority": "обычная",
         "status": "в процессе",
-        "dueTime": "",
+        "dueTime": "2018-10-07T10:00",
         "executionTime": ""
-      },
-      {
-        "id": 976159,
-        "title": "5",
-        "description": "5",
-        "priority": "обычная",
-        "status": "в процессе",
-        "dueTime": "",
-        "executionTime": "2018-10-04T23:10:22.817Z"
       }
     ]
   }

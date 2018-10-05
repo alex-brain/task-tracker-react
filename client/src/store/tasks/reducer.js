@@ -16,7 +16,6 @@ export default reducer(initState, {
   [types.GET_TASKS]: (state) => {
     return {
       ...state,
-      list: [],
       wait: true
     };
   },

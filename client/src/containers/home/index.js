@@ -7,7 +7,6 @@ import { LayoutPage } from '../../components/layouts';
 import { Header } from '../index';
 import { TaskList, TaskFilter, ViewSelect, ScrumBoard } from '../../components/elements';
 
-
 class Home extends Component {
 
   static propTypes = {
@@ -20,8 +19,17 @@ class Home extends Component {
     dispatch: PropTypes.func
   };
 
+  timer = null;
+
   componentWillMount() {
     this.fetchData();
+    this.timer = setInterval(()=> {
+      this.props.dispatch(actions.tasks.getList());
+    }, 120000);
+  }
+
+  componentWillUnmount() {
+    this.timer = null;
   }
 
   moveTask = (dragCard, hoverCard) => {
