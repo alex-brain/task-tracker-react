@@ -33,7 +33,7 @@
         "title": "Первая задача для user1",
         "description": "Описание первой задачи для user1",
         "priority": "обычная",
-        "status": "готово",
+        "status": "в процессе",
         "dueTime": "2018-10-28T16:00",
         "executionTime": "2018-10-05T04:35:11.973Z"
       },
@@ -42,7 +42,7 @@
         "title": "Вторая задача для user2",
         "description": "Вторая задача для user2",
         "priority": "очень важная",
-        "status": "в процессе",
+        "status": "план",
         "dueTime": "2018-10-01T16:00",
         "executionTime": ""
       },
@@ -51,7 +51,7 @@
         "title": "Третья задача для user1",
         "description": "Третья задача для user1",
         "priority": "важная",
-        "status": "готово",
+        "status": "в процессе",
         "dueTime": "2018-10-18T14:00",
         "executionTime": "2018-10-05T04:35:05.020Z"
       }
